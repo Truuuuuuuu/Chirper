@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="'lofi">
+<html lang="en" data-theme="lofi">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="widtfh=device-width, initial-scale=1.0">
-    <title> {{ isset($title) ? $title . ' - Chirper' : 'Chirper' }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {{ isset($title) ? $title . ' - Chirper' : 'Chirper' }}</title> 
     <link rel="preconnect" href="https://fonts.bunny.net" />
     <link rel="stylesheet" href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daisyui@5" type="text/css" />
@@ -24,6 +24,17 @@
         </div>
     </nav>
 
+    @if (session('success'))
+        <div class="toast toast-top toast-center">
+            <div class="alert alert-success animate-fade-out">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-line-join="round" stroke-width="2" d="M9 12l2 2l4-4M12 2a10 10 0 110 20a10 10 0 010-20z"/>
+                </svg>
+                <span>{{ session('success') }}</span>
+            </div>
+        </div>
+    @endif
+    
     <main class="flex-1 container mx-auto px-4 py-8">
         {{ $slot }}
     </main>
